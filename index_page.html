@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- 框架样式表 -->
+  <link rel="stylesheet" href="./lib/mui/css/mui.min.css">
+  <!-- MUI扩展字体图标 -->
+  <link rel="stylesheet" href="./lib/fontawesome/css/font-mui-icons-extra.css">
+  <!-- 页面样式表 -->
+  <link rel="stylesheet" href="./styles/index.css">
+  <title>样式模板</title>
+</head>
+
+<body>
+  <div class="pyg_page">
+    <!-- 页面头部 -->
+    <div class="pyg_head">
+      <div class="mui-input-row mui-search">
+        <input type="search" class="mui-input-clear" placeholder="">
+      </div>
+    </div>
+    <!-- 页面内容 -->
+    <div class="pyg_content">
+      <!-- 轮播图部分 -->
+      <div class="pyg_slide">
+        <div class="mui-slider">
+          <!-- 图片 -->
+          <div class="mui-slider-group mui-slider-loop pyg_slide_image">
+
+          </div>
+          <!-- 小圆点 -->
+          <div class="mui-slider-indicator pyg_dat">
+
+          </div>
+        </div>
+      </div>
+      <!-- 导航栏部分 -->
+      <div class="pyg_bar">
+        <a href="#">
+          <img src="https://image2.suning.cn/uimg/cms/img/155411189774023862.gif?format=_is_120w_120h" alt="">
+          <p>爆款超市</p>
+        </a>
+        <a href="#">
+          <img src="https://image3.suning.cn/uimg/cms/img/154708800857670247.png?format=_is_120w_120h.webp" alt="">
+          <p>苏宁超市</p>
+        </a>
+        <a href="#">
+          <img src="https://image2.suning.cn/uimg/cms/img/155175138228120594.png?format=_is_120w_120h.webp" alt="">
+          <p>生活家电</p>
+        </a>
+        <a href="#">
+          <img src="https://image1.suning.cn/uimg/cms/img/154708804944582613.png?format=_is_120w_120h.webp" alt="">
+          <p>苏宁生鲜</p>
+        </a>
+        <a href="#">
+          <img src="https://image2.suning.cn/uimg/cms/img/154708806622775342.png?format=_is_120w_120h.webp" alt="">
+          <p>母婴玩具</p>
+        </a>
+      </div>
+      <!-- 产品块结构 -->
+      <div class="pyg_data clearfix">
+        
+      </div>
+    </div>
+    <!-- 页面底部 -->
+    <div class="pag_base ">
+      <nav class="mui-bar mui-bar-tab">
+        <a class="mui-tab-item mui-active" href="#tabbar">
+          <span class="mui-icon mui-icon-home"></span>
+          <span class="mui-tab-label">首页</span>
+        </a>
+        <a class="mui-tab-item" href="#tabbar-with-chat">
+          <span class="mui-icon mui-icon-list"></span>
+          <span class="mui-tab-label">分类</span>
+        </a>
+        <a class="mui-tab-item" href="#tabbar-with-contact">
+          <span class="mui-icon mui-icon-extra mui-icon-extra-cart"></span>
+          <span class="mui-tab-label">购物车</span>
+        </a>
+        <a class="mui-tab-item" href="#tabbar-with-map">
+          <span class="mui-icon mui-icon-gear"></span>
+          <span class="mui-tab-label">我的</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+</body>
+
+</html>
+<!-- 轮图小圆点  渲染模板 -->
+<script type="text/template" id="pyg_datTemp">
+  {{each data value index}}
+  <div class="mui-indicator {{index==0?'mui-active':''}}"></div>
+  {{/each}}
+</script>
+<!-- 轮播图图片  数据渲染模板 -->
+<script type="text/template" id="pyg_sliderTemp">
+  <!--支持循环，需要重复图片节点-->
+  <div class="mui-slider-item mui-slider-item-duplicate"><a href="{{data[data.length-1].navigator_url}}"><img src="{{data[data.length-1].image_src}}" /></a></div>
+  {{each data  value index}}
+  <div class="mui-slider-item"><a href="value.navigator_url"><img src="{{value.image_src}}" /></a></div>
+  {{/each}}
+  <!--支持循环，需要重复图片节点-->
+  <div class="mui-slider-item mui-slider-item-duplicate"><a href="{{data[0].navigator_url}}"><img src="{{data[0].image_src}}" /></a></div>
+</script>
+<!-- 产品内容 数据渲染模板 -->
+<script type="text/template" id="pyg_dataTemp">
+  {{each data value index}}
+  <div class="pyg_data_image">
+    <img src="{{value.group_img}}" alt="">
+  </div>
+  <ul class="pyg_data_pbox ">
+    {{each value.goods v i}}
+    <li class="pyg_data_box">
+      <a href="#" class="pyg_data_mage">
+        <img src="{{v.goods_small_logo}}"
+          alt="">
+        <div>{{v.goods_name}}</div>
+        <p>￥{{v.goods_price}}</p>
+      </a>
+      <a type="button" class="mui-btn mui-btn-primary mui-btn-outlined">找相似</a>
+    </li>
+    {{/each}}
+  </ul>
+  {{/each}}
+</script>
+<!-- 引入框架js -->
+<script src="./lib/mui/js/mui.js"></script>
+<!-- 引入js库 -->
+<script src="./lib/zepto/zepto.js"></script>
+<!-- 引入渲染模板js -->
+<script src="./lib/arttemplate/template-web.js"></script>
+<!-- 引入ajax拦截器 -->
+<script src="./js/common.js"></script>
+<!-- 引入页面业务js -->
+<script src="./js/index.js"></script>

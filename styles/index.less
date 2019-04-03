@@ -1,0 +1,112 @@
+// 样式初始化表
+@import './reset.less';
+
+
+
+.pyg_page {
+  width: 100vw;
+  height: 100vh;
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  // 设置主轴方向为水平向下
+  flex-direction: column;
+  background-color: #efeff4;
+
+  // 头部内容样式
+  >.pyg_head {
+    height: 45px;
+    width: 100%;
+    background-color: #fff;
+    padding: 5px
+  }
+
+  // 内容部分样式
+  >.pyg_content {
+    padding: 0 8px;
+    background-color: #efeff4;
+    overflow: scroll;
+    // 导航条样式
+    >.pyg_bar {
+      display: flex;
+      padding-top: 15px;
+      background-color: #fff;
+      margin-top: 15px;
+
+      >a {
+        flex: 1;
+        font-size: 13px;
+        text-align: center;
+
+        >img {
+          width: 50px;
+          display: inline-block;
+        }
+      }
+    }
+
+    // 产品内容样式
+    >.pyg_data {
+      width: 100%;
+      margin-top: 15px;
+
+      >.pyg_data_image {
+        width: 100%;
+        margin-top: 10px;
+
+        >img {
+          width: 100%;
+          display: block;
+        }
+      }
+
+      >.pyg_data_pbox {
+        width: 100%;
+        display: flex;
+        margin-top: 10px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding-bottom: 5px;
+
+        >.pyg_data_box {
+          width: 49%;
+          margin-top: 5px;
+          display: inline-block;
+          background-color: #fff;
+
+          img {
+            width: 100%;
+            display: block;
+          }
+
+          div {
+            font-size: 12px;
+            height: 42px;
+            overflow: hidden;
+          }
+
+          p {
+            color: red;
+            font-size: 18px;
+          }
+
+          >a:nth-of-type(2) {
+            width: 80%;
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 10px;
+          }
+        }
+      }
+
+
+    }
+  }
+
+  // 底部内容样式
+  >.pag_base {
+    width: 100%;
+    height: 45px;
+    margin-top: 30px
+  }
+}
