@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>分类页面</title>
+  <!-- MUI框架样式 -->
+  <link rel="stylesheet" href="../lib/mui/css/mui.min.css">
+  <!-- 自定义图标 -->
+  <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
+  <!-- MUI扩展字体图标 -->
+  <link rel="stylesheet" href="../lib/fontawesome/css/font-mui-icons-extra.css">
+  <!-- 页面样式 -->
+  <link rel="stylesheet" href="../styles/classify.css">
+</head>
+
+<body>
+  <div class="layout">
+    <!-- 分类页面头部 -->
+    <div class="pyg_header">
+      <div class="mui-input-row mui-search">
+        <input type="search" class="mui-input-clear" placeholder="">
+      </div>
+    </div>
+    <!-- 分类页面内容 -->
+    <div class="pyg_content">
+      <!-- 左边列表内容 -->
+      <div class="left">
+        <ul class="left_list">
+
+        </ul>
+      </div>
+      <!-- 右边产品内容 -->
+      <div class="right">
+        <div class="right_list">
+          
+        </div>
+      </div>
+    </div>
+    <!-- 分类页面底部 -->
+    <div class="pyg_footer">
+      <nav class="mui-bar mui-bar-tab">
+        <a class="mui-tab-item" href="../index.html">
+          <span class="mui-icon mui-icon-home"></span>
+          <span class="mui-tab-label">首页</span>
+        </a>
+        <a class="mui-tab-item mui-active" href="./views/category.html">
+          <span class="mui-icon mui-icon-list"></span>
+          <span class="mui-tab-label">分类</span>
+        </a>
+        <a class="mui-tab-item" href="#tabbar-with-contact">
+          <span class="mui-icon-extra mui-icon-extra-cart"></span>
+          <div class="mui-tab-label" style='font-size: 12px'>购物车</div>
+        </a>
+        <a class="mui-tab-item" href="#tabbar-with-map">
+          <span class="mui-icon mui-icon-contact"></span>
+          <span class="mui-tab-label">我的</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+  <!-- left 渲染模板 -->
+  <script type="text/template" id="leftTemp">
+    {{each data value index}}
+    <li class="{{index==0?'active':''}}">
+        <a href="#">{{value.cat_name}}</a>
+    </li>
+    {{/each}}
+  </script>
+  <!-- right 渲染模板 -->
+  <script type="text/template" id="rightTemp">
+    {{each children value index}}
+      <div class="cont">
+          <h3>{{value.cat_name}}</h3>
+          <div class="conts">
+            <ul>
+              {{each value.children v i}}
+              <li>
+                <a href="goods_list.html?cid={{v.cat_id}}">
+                  <img src="http://157.122.54.189:9094{{v.cat_icon}}" alt="">
+                  <p>{{v.cat_name}}</p>
+                </a>
+              </li>
+              {{/each}}
+            </ul>
+          </div>  
+      </div>
+      {{/each}}
+  </script>
+  <!-- MUI框架 -->
+  <script src="../lib/mui/js/mui.min.js"></script>
+  <!-- zepto.js库 -->
+  <script src="../lib/zepto/zepto.js"></script>
+  <!-- 渲染插件 -->
+  <script src="../lib/arttemplate/template-web.js"></script>
+  <!-- 页面滑动插件 -->
+  <script src="../lib/iscroll/iscroll.js"></script>
+  <!-- 页面公共js代码 -->
+  <script src="../js/common.js"></script>
+  <!-- 页面功能js -->
+  <script src="../js/classify.js"></script>
+</body>
+
+</html>

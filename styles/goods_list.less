@@ -1,0 +1,88 @@
+@import './reset.less';
+@import './commno.less';
+
+.pyg_content {
+  header {
+    background-color: #007aff;
+
+    h1 {
+      font-size: 20px;
+      color: pink;
+    }
+
+    a {
+      font-weight: 600;
+      color: #fff;
+    }
+  }
+
+  .center {
+    li {
+      a {
+        display: flex;
+        background-color: #fff;
+        margin-top: 5px;
+
+        >.left {
+          flex: 1;
+          text-align: center;
+
+          >img {
+            width: 70%;
+          }
+        }
+
+        >.right {
+          flex: 1;
+          display: flex;
+          overflow: hidden;
+          flex-direction: column;
+          justify-content: space-around;
+
+          >div {
+            color: #000;
+            font-size: 16px;
+          }
+
+          >p {
+            color: red;
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
+
+  .menu {
+    .search_bar {
+      height: 40px;
+
+      .searchBox {
+        height: 40px;
+        padding: 5px;
+        position: relative;
+
+        input {
+          height: 30px;
+          width: 100%;
+          border: none;
+          border: 1px solid #ccc;
+          margin-bottom: 0;
+          padding: 0;
+        }
+
+        .query_btn {
+          width: 60px;
+          height: 30px;
+          text-align: center;
+          background-color: skyblue;
+          line-height: 30px;
+          position: absolute;
+          top: 5px;
+          right: 0;
+          padding: 0;
+        }
+      }
+    }
+  }
+}
